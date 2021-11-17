@@ -45,13 +45,13 @@ class APIClient:
 
     HOST_URL = 'http://127.0.0.1:5000'
 
-    @staticmethod
-    def make_request(start_key=None):
+    @classmethod
+    def make_request(cls, start_key=None):
         """Makes request to items endpoint. Returns a list of strings.
 
         :rtype: [str]
         """
-        url = f'{self.HOST_URL}/items'
+        url = f'{cls.HOST_URL}/items'
 
         if start_key:
             url = f'{url}?start_key={start_key}'
@@ -62,4 +62,4 @@ class APIClient:
 
 
 if __name__ == '__main__':
-    # Fill in
+    pass
