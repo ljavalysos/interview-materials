@@ -38,15 +38,15 @@ if __name__ == '__main__':
 ```python
 def get_items():
     """Returns a list of 100 items, beginning with the start key."""
-    out = []
+    start_key = request.args.get('start_key')
     
-    if request.args.get('start_key'):
-        key = request.args['start_key']
-        startkey_id = Item.query.filter(Item.name == key).one().id
-        entries = Item.query.offset(startkey_id - 1).limit(100).all()
+    if start_key:
+        start_item = Item.query.filter(Item.name == start_key).one().id
+        entries = Item.query.offset(start_item.id - 1).limit(100).all()
     else:
         entries = Item.query.offset(0).limit(100).all()
-    
+
+    out = []
     for entry in entries:
         out.append(entry.name)
     return jsonify(out)
