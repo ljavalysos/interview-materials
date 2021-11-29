@@ -8,7 +8,7 @@ from sqlalchemy.dialects.sqlite import JSON
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-engine = sqlalchemy.create_engine('sqlite:///')
+engine = sqlalchemy.create_engine('sqlite:///./incident.db')
 Session = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 Base = declarative_base(bind=engine)
 
