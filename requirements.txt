@@ -1,5 +1,4 @@
-Flask==0.12.4
-Flask-SQLAlchemy==2.5.1
+Flask==2.0.2
+SQLAlchemy==1.4
 Faker==8.8.2
 requests==2.26.0
-
