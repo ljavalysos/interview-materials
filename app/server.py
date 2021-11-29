@@ -31,20 +31,6 @@ def get_items():
     And the following Flask docs:
     https://flask.palletsprojects.com/en/2.0.x/api/#flask.Request
     """
-    start_key = request.args.get('start_key')
-
     # Fill in
 
-    # TODO temp
-    incidents = [
-        {
-            'phone_number': i.phone_number,
-            'location': i.location,
-            'emergency_type': i.emergency_type,
-            'status': i.status,
-            'created_time': i.created_time
-        }
-        for i in session.query(Incident).all()
-    ]
-
-    return jsonify(incidents)  # Add response as argument to jsonify()
+    return jsonify()  # Add response as argument to jsonify()

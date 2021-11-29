@@ -26,6 +26,5 @@ class APIClient:
 
 
 if __name__ == '__main__':
-    # TODO temp
-    client = APIClient()
-    print(client.make_request())
+    # Fill in
+    pass
