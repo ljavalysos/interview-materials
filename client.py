@@ -15,13 +15,13 @@ class APIClient:
     HOST_URL = 'http://127.0.0.1:5000'
 
     @classmethod
-    def make_request(cls, url_path):
+    def make_request(cls, path):
         """Makes request to items endpoint. Returns a list of strings.
 
-        :param str url_path: URL path to make GET request to
+        :param str path: URL path to make GET request to
         :rtype: [str]
         """
-        url = urllib.parse.urljoin(cls.HOST_URL, url_path)
+        url = urllib.parse.urljoin(cls.HOST_URL, path)
         response = requests.get(url)
         response.raise_for_status()
 
