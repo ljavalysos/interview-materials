@@ -51,22 +51,26 @@ def init_db():
 def populate_data():
     fake = Faker()
     session = Session()
-    for _ in range(49):
-        session.add(
-            Incident(
-                phone_number=fake.phone_number(),
-                location={
-                    'type': 'Feature',
-                    'geometry': {
-                        'type': 'Point',
-                        'coordinates': [
-                            float(fake.longitude()),
-                            float(fake.latitude())
-                        ]
-                    }
-                },
-                emergency_type=random.choice(EMERGENCY_TYPES),
-                status=random.choice(STATUSES)
-            )
+
+    incidents = []
+    for _ in range(25):
+        incident = Incident(
+            phone_number=fake.phone_number(),
+            location={
+                'type': 'Feature',
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': [
+                        float(fake.longitude()),
+                        float(fake.latitude())
+                    ]
+                }
+            },
+            emergency_type=random.choice(EMERGENCY_TYPES),
+            status=random.choice(STATUSES)
         )
+        print(incident.phone_number)
+        incidents.append(incident)
+
+    session.add_all(incidents)
     session.commit()

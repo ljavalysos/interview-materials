@@ -35,6 +35,8 @@ def get_incidents():
     # Get list of emergency incidents
     incidents = []
 
+    # FILL IN
+
     schema = IncidentSchema(many=True)
     return jsonify(
         schema.dump(incidents)
