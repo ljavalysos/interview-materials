@@ -9,6 +9,7 @@ flask run
 from flask import Flask, request, jsonify
 
 from incident import Incident, Session, init_db, populate_data
+from schemas import IncidentSchema
 
 
 # Create the app
@@ -22,7 +23,7 @@ session = Session()
 
 # Define the API endpoint
 @app.route('/incidents', methods=['GET'])
-def get_items():
+def get_incidents():
     """Implements emergency incident data egress endpoint.
 
     Feel free to reference the following SQLAlchemy documentation:
@@ -31,6 +32,10 @@ def get_items():
     And the following Flask docs:
     https://flask.palletsprojects.com/en/2.0.x/api/#flask.Request
     """
-    # Fill in
+    # Get list of emergency incidents
+    incidents = []
 
-    return jsonify()  # Add response as argument to jsonify()
+    schema = IncidentSchema(many=True)
+    return jsonify(
+        schema.dump(incidents)
+    )
