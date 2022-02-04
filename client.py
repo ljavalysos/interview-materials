@@ -32,7 +32,7 @@ if __name__ == '__main__':
     try:
         url_path = sys.argv[1]
     except IndexError:
-        url_path = '/incidents'
+        url_path = '/incidents?phone_number=12223334445'
 
     client = APIClient()
     resp = client.make_request(url_path)
